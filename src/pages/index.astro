@@ -6,14 +6,20 @@ import { SITE } from '../config/site';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 3);
+
+const counties = [
+  'Comanche', 'Erath', 'Eastland', 'Brown', 'Hamilton', 'Mills', 'Coleman',
+  'San Saba', 'Llano', 'Mason', 'McCulloch', 'Burnet', 'Blanco', 'Gillespie',
+];
 ---
 
 <BaseLayout title="Texas Farm, Ranch & Recreational Land">
-  <section class="hero">
+  <!-- Full-bleed photo hero -->
+  <section class="hero-photo">
     <div class="container">
       <p class="tagline">{SITE.tagline}</p>
       <h1>Texas farm, ranch &amp; recreational land, represented honestly.</h1>
-      <p>
+      <p class="hero-sub">
         {SITE.name} helps buyers and sellers of farms, ranches, and recreational
         properties across Texas — with honest advice from a land specialist who
         doesn't just sell ranch land. He works it.
@@ -25,46 +31,113 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     </div>
   </section>
 
+  <!-- Featured land -->
   <section class="section">
     <div class="container">
-      <h2>How we help</h2>
+      <h2>Featured land for sale</h2>
+      <p class="section-lede">
+        Our founding listings are being prepared now. These are the kinds of
+        Texas land we specialize in — join the first-call list and you'll hear
+        about matching tracts, including upcoming and off-market land, before
+        they ever reach this page.
+      </p>
       <div class="cards">
-        <div class="card">
-          <h3>Buying land</h3>
-          <p>Water, soils, ag valuation, wildlife, and access — evaluated the way a working rancher evaluates his own place, before you ever make an offer.</p>
-          <p><a href="/buy/">Buying with Honest Acres →</a></p>
+        <div class="card photo-card">
+          <img src="/images/cattle-pasture.webp" alt="Black cattle grazing green pasture under large oak trees" />
+          <h3>Cattle country</h3>
+          <p>Improved pasture, Bermuda hay fields, working pens, and water in every pasture — production land evaluated by a man who runs cattle himself.</p>
+          <p><a href="/listings/">See cattle &amp; grazing land →</a></p>
         </div>
-        <div class="card">
-          <h3>Selling land</h3>
-          <p>Honest pricing, professional presentation, and marketing that reaches real land buyers — on the big land platforms and far beyond them.</p>
-          <p><a href="/sell/">Selling with Honest Acres →</a></p>
+        <div class="card photo-card">
+          <img src="/images/whitetail-oaks.webp" alt="Whitetail buck standing in post oak timber at sunrise" />
+          <h3>Hunting land</h3>
+          <p>Post oak timber, native forage, and managed wildlife habitat in counties known for whitetail, hogs, and dove.</p>
+          <p><a href="/listings/">See hunting land →</a></p>
         </div>
-        <div class="card">
-          <h3>Recreational &amp; hunting land</h3>
-          <p>Deer, dove, hogs, tanks, and oak country. We know what makes a tract hunt — and what makes it hold its value.</p>
-          <p><a href="/regions/">Explore our regions →</a></p>
+        <div class="card photo-card">
+          <img src="/images/ranch-lake.webp" alt="Calm ranch lake with a small dock and oak trees at sunset" />
+          <h3>Lakes, ponds &amp; waterfront</h3>
+          <p>Stocked lakes, live water, and pond sites — the feature that sells a ranch and keeps a family coming back to it.</p>
+          <p><a href="/listings/">See land with water →</a></p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section class="section section-alt">
-    <div class="container">
-      <h2>Meet James</h2>
-      <p>
-        James lives in Comanche County and runs a working ranch with cattle and
-        Bermuda hay fields. When he talks about carrying capacity, hay
-        production, water, and soils, it's not sales talk — it's what he did
-        this week.
-      </p>
-      <p><a href="/about/">More about James and Honest Acres Group →</a></p>
+    <div class="container split">
+      <div>
+        <h2>About Honest Acres</h2>
+        <p>
+          Honest Acres Group was built on a simple idea: the person advising
+          you on ranch land ought to know it firsthand. James Hoffman is based
+          in Dallas and runs a working ranch in Comanche County — cattle on
+          Bermuda pasture and hay fields — so when he talks about carrying
+          capacity, water, soils, and fences, it's not sales talk. It's what
+          he did this week.
+        </p>
+        <p>
+          We focus on rural, recreational, and farm &amp; ranch property —
+          honest pricing, straight answers, and marketing that reaches real
+          land buyers.
+        </p>
+        <p><a href="/about/">More about James and Honest Acres Group →</a></p>
+      </div>
+      <img class="split-img" src="/images/cattle-pasture.webp" alt="Cattle grazing under oak trees on the Hoffman ranch country" />
     </div>
   </section>
 
+  <!-- Land by lifestyle — shop by category -->
   <section class="section">
     <div class="container">
-      <h2>Our home ground</h2>
-      <div class="cards">
+      <h2>Land by lifestyle</h2>
+      <p class="section-lede">
+        Everybody buys land for a reason. Start with yours — each category is
+        a different way of owning Texas.
+      </p>
+      <div class="tiles">
+        <a class="tile" href="/listings/">
+          <img src="/images/cattle-pasture.webp" alt="Cattle grazing in green pasture" />
+          <span>Cattle &amp; Grazing Ranches</span>
+        </a>
+        <a class="tile" href="/listings/">
+          <img src="/images/whitetail-oaks.webp" alt="Whitetail deer in oak timber" />
+          <span>Hunting &amp; Wildlife Land</span>
+        </a>
+        <a class="tile" href="/listings/">
+          <img src="/images/ranch-lake.webp" alt="Ranch lake at sunset" />
+          <span>Lakes, Ponds &amp; Waterfront</span>
+        </a>
+        <a class="tile" href="/listings/">
+          <img src="/images/hero-ranch-land.webp" alt="Rolling Texas ranch land with a pond at sunset" />
+          <span>Recreational Retreats</span>
+        </a>
+      </div>
+      <p class="chips">
+        <a class="chip" href="/listings/">Farms &amp; Hay Land</a>
+        <a class="chip" href="/listings/">Horse Properties</a>
+        <a class="chip" href="/listings/">Combination Ranches</a>
+        <a class="chip" href="/listings/">Investment &amp; Legacy Land</a>
+        <a class="chip" href="/listings/">Homes on Acreage</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Browse by county -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Browse land by county</h2>
+      <p class="section-lede">
+        Our home ground is the Cross Timbers and the North Hill Country.
+        Pick a county and read up before you ever set foot on a tract.
+      </p>
+      <div class="county-grid">
+        {counties.map((county) => (
+          <a href="/county-guides/">{county} County</a>
+        ))}
+      </div>
+      <div class="cards" style="margin-top:1.5rem;">
         <div class="card">
           <h3>The Cross Timbers</h3>
           <p>Post oak country with sandy soils, live water, cattle pasture, and some of the best honest land value in Texas.</p>
@@ -76,19 +149,33 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
           <p><a href="/regions/north-hill-country/">North Hill Country guide →</a></p>
         </div>
       </div>
-      <p style="margin-top:1rem;"><a href="/county-guides/">Browse land by county →</a></p>
     </div>
   </section>
 
-  <section class="section section-alt">
+  <!-- Video series -->
+  <section class="section">
+    <div class="container split">
+      <img class="split-img" src="/images/ranch-lake.webp" alt="Still water and oak trees at sunset" />
+      <div>
+        <h2>Fairways &amp; Fences</h2>
+        <p>
+          Our YouTube series visiting the local golf courses in the counties
+          we serve — drone flyovers, a round with James, and a report back on
+          what each county offers the folks thinking about living there.
+          Land first, lifestyle included.
+        </p>
+        <p><a href="/fairways-and-fences/">About the series →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section class="member-strip">
     <div class="container">
-      <h2>Fairways &amp; Fences</h2>
       <p>
-        Our YouTube series visiting the local golf courses in the counties we
-        serve — drone flyovers, a round with James, and a report back on what
-        each county offers the folks thinking about living there.
+        James Hoffman, REALTOR® — member of the National Association of
+        REALTORS® · Brokered by Access Realty
       </p>
-      <p><a href="/fairways-and-fences/">About the series →</a></p>
     </div>
   </section>
 
