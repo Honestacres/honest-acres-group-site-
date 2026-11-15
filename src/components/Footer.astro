@@ -1,0 +1,84 @@
+---
+import { SITE } from '../config/site';
+
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'Instagram', url: SITE.social.instagram },
+  { label: 'Facebook', url: SITE.social.facebook },
+  { label: 'YouTube', url: SITE.social.youtube },
+].filter((s) => s.url);
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      <strong>{SITE.name}</strong> — farm, ranch &amp; recreational land in Texas.<br />
+      {SITE.agent.name}{SITE.agent.isRealtor ? ', REALTOR®' : ''}, Texas Lic. #{SITE.agent.license} ·
+      <a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a>
+      {SITE.agent.showPhonePlaceholder ? (
+        <> · <span>Phone: {SITE.agent.phone}</span></>
+      ) : (
+        <> · <a href={`tel:${SITE.agent.phone}`}>{SITE.agent.phone}</a></>
+      )}
+    </p>
+
+    {socials.length > 0 && (
+      <p>
+        Follow along:{' '}
+        {socials.map((s, i) => (
+          <>{i > 0 && ' · '}<a href={s.url} rel="noopener" target="_blank">{s.label}</a></>
+        ))}
+      </p>
+    )}
+
+    {/*
+      TREC Consumer Protection Notice (§531.18) and IABS (§531.20):
+      links must sit in a readily noticeable place on the homepage with
+      these exact long labels at 10pt or larger. This block renders on
+      every page, including the homepage. Font size is set in
+      `.trec-notices a` in global.css (16px ≈ 12pt).
+      NOTE: the IABS link must point to the COMPLETED IABS form before
+      public launch — see src/config/site.ts and COMPLIANCE.md.
+    */}
+    <nav class="trec-notices" aria-label="Texas Real Estate Commission notices">
+      <p>
+        <a href={SITE.legal.consumerProtectionNoticeUrl} target="_blank" rel="noopener">
+          Texas Real Estate Commission Consumer Protection Notice
+        </a>
+      </p>
+      <p>
+        <a href={SITE.legal.iabsUrl} target="_blank" rel="noopener">
+          Texas Real Estate Commission Information About Brokerage Services
+        </a>
+      </p>
+    </nav>
+
+    <p class="footer-links">
+      <a href={SITE.legal.fairHousingUrl}>Fair Housing</a>
+      {' · '}
+      <a href={SITE.legal.privacyUrl}>Privacy Policy</a>
+      {' · '}
+      <a href={SITE.legal.termsUrl}>Terms of Use</a>
+      {' · '}
+      <a href={SITE.legal.accessibilityUrl}>Accessibility</a>
+    </p>
+
+    {/* Equal Housing Opportunity — inline SVG house/equal-sign mark is a
+        placeholder until official logo artwork is added. See COMPLIANCE.md. */}
+    <p class="eho">
+      <span class="eho-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" focusable="false">
+          <path d="M12 3 L22 12 H19 V21 H14 V15 H10 V21 H5 V12 H2 Z" fill="currentColor" />
+          <rect x="8.5" y="10.2" width="7" height="1.6" fill="#142a1d" />
+          <rect x="8.5" y="13" width="7" height="1.6" fill="#142a1d" />
+        </svg>
+      </span>
+      <span><strong>{SITE.fairHousing.slogan}</strong> — We are pledged to the letter and spirit of U.S. policy for the achievement of equal housing opportunity. <a href={SITE.legal.fairHousingUrl}>Our fair housing commitment</a></span>
+    </p>
+
+    <div class="footer-brokerage">
+      <p>{SITE.brokerage.footerLine}</p>
+      <p>© {year} {SITE.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

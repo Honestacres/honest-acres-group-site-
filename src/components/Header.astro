@@ -1,0 +1,32 @@
+---
+import { SITE } from '../config/site';
+
+const nav = [
+  { href: '/about/', label: 'About' },
+  { href: '/buy/', label: 'Buy' },
+  { href: '/sell/', label: 'Sell' },
+  { href: '/listings/', label: 'Listings' },
+  { href: '/regions/', label: 'Regions' },
+  { href: '/county-guides/', label: 'County Guides' },
+  { href: '/fairways-and-fences/', label: 'Fairways & Fences' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      {SITE.name}
+      <small>{SITE.tagline}</small>
+      {/* TREC §535.155: broker's name must appear in a readily noticeable
+          location at at least half the size of the largest team/agent
+          contact information. .brand-broker is 0.8rem vs .brand 1.25rem
+          (64%) — see COMPLIANCE.md. */}
+      <small class="brand-broker">Brokered by {SITE.brokerage.name}</small>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</header>
