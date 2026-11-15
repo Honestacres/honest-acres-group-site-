@@ -14,6 +14,19 @@ const fmt = (n?: number) => (n ? `$${n.toLocaleString('en-US')}` : 'Call for pri
     <div class="container">
       <h1>Land for sale</h1>
 
+      <h2>Browse by category</h2>
+      <p class="chips">
+        <a class="chip" href="/listings/">Cattle &amp; Grazing Ranches</a>
+        <a class="chip" href="/listings/">Hunting &amp; Wildlife Land</a>
+        <a class="chip" href="/listings/">Lakes, Ponds &amp; Waterfront</a>
+        <a class="chip" href="/listings/">Recreational Retreats</a>
+        <a class="chip" href="/listings/">Farms &amp; Hay Land</a>
+        <a class="chip" href="/listings/">Horse Properties</a>
+        <a class="chip" href="/listings/">Combination Ranches</a>
+        <a class="chip" href="/listings/">Investment &amp; Legacy Land</a>
+        <a class="chip" href="/listings/">Homes on Acreage</a>
+      </p>
+
       {listings.length === 0 ? (
         <>
           <div class="todo-note">
