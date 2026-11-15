@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const listings = await getCollection('listings', ({ data }) => !data.draft);
+const fmt = (n?: number) => (n ? `$${n.toLocaleString('en-US')}` : 'Call for price');
+---
+
+<BaseLayout
+  title="Land for Sale"
+  description="Farms, ranches, and recreational properties for sale in Texas with Honest Acres Group. New listings are added here as they sign — ask about upcoming and off-market land."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Land for sale</h1>
+
+      {listings.length === 0 ? (
+        <>
+          <div class="todo-note">
+            <strong>Listings coming soon.</strong> Honest Acres Group is a new
+            real estate group, brokered by Access Realty, and our first
+            listings are being prepared now. They'll appear on this page as
+            they sign.
+          </div>
+          <h2>Looking now?</h2>
+          <p>
+            Some of the best Texas land never reaches a public listing page.
+            Tell us what you're after — acreage, county, water, budget — and
+            we'll put you on the first-call list for matching tracts,
+            including upcoming and off-market opportunities.
+          </p>
+          <p>
+            <a class="btn btn-green" href="/buy/">How buying with us works</a>
+            <a class="btn btn-green" href="/contact/">Join the first-call list</a>
+          </p>
+          <h2>Ready to sell?</h2>
+          <p>
+            Be one of the founding listings of Honest Acres Group — with
+            honest pricing, professional presentation, and marketing built to
+            reach real land buyers.
+          </p>
+          <p><a class="btn btn-green" href="/sell/">Selling with Honest Acres</a></p>
+        </>
+      ) : (
+        <div class="cards">
+          {listings.map((listing) => (
+            <div class="card">
+              {listing.data.image && <img src={listing.data.image} alt={listing.data.title} style="width:100%;border-radius:4px;" />}
+              <h3><a href={`/listings/${listing.id}/`}>{listing.data.title}</a></h3>
+              <p class="meta">{listing.data.county} County · {listing.data.status}</p>
+              <p>
+                {listing.data.acres && <>{listing.data.acres} acres · </>}
+                {fmt(listing.data.price)}
+              </p>
+              <p>{listing.data.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <p class="meta" style="margin-top:2rem;">
+        Listing information on this website is provided for consumers'
+        personal, non-commercial use. Information is deemed reliable but is
+        not guaranteed accurate, and buyers should independently verify all
+        details — including acreage, boundaries, water, mineral rights, and
+        tax status — through surveys, inspections, and other appropriate
+        professionals before purchase.
+        {/*
+          TODO (before any IDX feed goes live): add the disclaimer required
+          by the applicable MLS (e.g., NTREIS or the local association MLS)
+          and confirm listing-data update frequency wording with the broker.
+          James's MLS membership is NOT yet confirmed — do not add an MLS
+          name, logo, or IDX disclaimer until it is. See COMPLIANCE.md.
+        */}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

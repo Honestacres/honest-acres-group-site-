@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const listings = await getCollection('listings', ({ data }) => !data.draft);
+  return listings.map((listing) => ({
+    params: { slug: listing.id },
+    props: { listing },
+  }));
+}
+
+const { listing } = Astro.props;
+const { Content } = await render(listing);
+const fmt = (n?: number) => (n ? `$${n.toLocaleString('en-US')}` : 'Call for price');
+---
+
+<BaseLayout title={listing.data.title} description={listing.data.description}>
+  <section class="section">
+    <div class="container">
+      <h1>{listing.data.title}</h1>
+      <p class="meta">
+        {listing.data.county} County, Texas · {listing.data.status}
+        {listing.data.acres && <> · {listing.data.acres} acres</>}
+        {' '}· {fmt(listing.data.price)}
+      </p>
+      {listing.data.image && <img src={listing.data.image} alt={listing.data.title} style="max-width:100%;border-radius:6px;" />}
+      <p>{listing.data.description}</p>
+      <Content />
+      <p class="meta">
+        Information about this property is deemed reliable but is not
+        guaranteed accurate. Buyers should independently verify all details
+        — including acreage, boundaries, water, mineral rights, and tax
+        status — through surveys, inspections, and other appropriate
+        professionals before purchase.
+      </p>
+      <p><a class="btn btn-green" href="/contact/">Ask about this property</a></p>
+      <p><a href="/listings/">← All listings</a></p>
+    </div>
+  </section>
+</BaseLayout>
