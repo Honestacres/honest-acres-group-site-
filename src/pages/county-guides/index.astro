@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Priority counties for guide pages. Each will get its own guide page over
+// time — add a page at src/pages/county-guides/<county>.astro and link it here.
+const crossTimbers = ['Comanche', 'Erath', 'Eastland', 'Brown', 'Hamilton', 'Mills', 'Coleman'];
+const northHillCountry = ['San Saba', 'Llano', 'Mason', 'McCulloch', 'Burnet', 'Blanco', 'Gillespie'];
+---
+
+<BaseLayout
+  title="County Guides"
+  description="Texas land by county: local guides to farm, ranch, and recreational land, water, and recreation in the Cross Timbers and North Hill Country counties Honest Acres Group serves."
+>
+  <section class="section">
+    <div class="container">
+      <h1>County guides</h1>
+      <p>
+        Land is local — down to the county, the soil survey, and which side of
+        the creek you're on. We're building a plainspoken guide for every
+        county we serve: what the land does, where the water is, what it
+        costs, and what there is to do once you own it — including, through
+        <a href="/fairways-and-fences/">Fairways &amp; Fences</a>, the local golf.
+      </p>
+
+      <div class="todo-note">
+        <strong>Coming soon:</strong> individual county guide pages are in
+        production. The counties below are our priority list — check back as
+        guides publish, or <a href="/contact/">ask us about a county today</a>.
+      </div>
+
+      <h2>Cross Timbers counties</h2>
+      <ul>
+        {crossTimbers.map((c) => <li>{c} County — guide coming soon</li>)}
+      </ul>
+
+      <h2>North Hill Country counties</h2>
+      <ul>
+        {northHillCountry.map((c) => <li>{c} County — guide coming soon</li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
