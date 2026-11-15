@@ -1,0 +1,134 @@
+/* Honest Acres Group — brand styles
+   Palette: deep timber green / harvest gold / cream / rust / charcoal */
+
+:root {
+  --green: #1e3d2a;        /* deep timber / post-oak green */
+  --green-dark: #142a1d;
+  --gold: #c8a24a;         /* harvest gold */
+  --cream: #f7f2e7;
+  --cream-dark: #efe7d3;
+  --rust: #b3542e;         /* terracotta / rust accent */
+  --charcoal: #262626;
+  --muted: #5c5c55;
+  --max-width: 72rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.65;
+}
+
+h1, h2, h3, nav, .sans {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 1rem; }
+h2 { font-size: 1.7rem; line-height: 1.25; margin: 2rem 0 0.75rem; }
+h3 { font-size: 1.15rem; margin: 1.25rem 0 0.4rem; }
+a { color: var(--green); }
+a:hover { color: var(--rust); }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 3rem 0; }
+.section-alt { background: var(--cream-dark); }
+
+.hero {
+  background: var(--green);
+  color: var(--cream);
+  padding: 4.5rem 0;
+}
+.hero h1 { color: #fff; }
+.hero .tagline { color: var(--gold); font-size: 1.3rem; margin-bottom: 0.5rem; }
+.hero p { max-width: 42rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  margin-right: 0.75rem;
+}
+.btn-gold { background: var(--gold); color: var(--green-dark); }
+.btn-gold:hover { background: var(--rust); color: #fff; }
+.btn-outline { border: 2px solid var(--cream); color: var(--cream); }
+.btn-green { background: var(--green); color: var(--cream); }
+
+.cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.card {
+  background: #fff;
+  border: 1px solid var(--cream-dark);
+  border-top: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+.card h3 { margin-top: 0; }
+
+.todo-note {
+  background: #fdf3e3;
+  border: 1px dashed var(--rust);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.92rem;
+}
+
+/* Header */
+.site-header { background: var(--green-dark); padding: 0.9rem 0; }
+.site-header .container { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; }
+.brand { color: #fff; text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 1.25rem; }
+.brand small { display: block; color: var(--gold); font-weight: 400; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+/* Broker name in header: 0.8rem = 64% of the 1.25rem brand/team name,
+   satisfying TREC §535.155's "at least half the size" requirement. */
+.brand .brand-broker { font-size: 0.8rem; letter-spacing: 0.02em; text-transform: none; color: var(--cream); margin-top: 0.15rem; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+.site-nav a { color: var(--cream); text-decoration: none; font-size: 0.95rem; }
+.site-nav a:hover { color: var(--gold); }
+
+/* Footer */
+.site-footer { background: var(--green-dark); color: var(--cream); padding: 2.5rem 0; margin-top: 3rem; font-size: 0.95rem; }
+.site-footer a { color: var(--gold); }
+.footer-brokerage { border-top: 1px solid rgba(247,242,231,0.25); margin-top: 1.5rem; padding-top: 1.25rem; font-size: 0.9rem; }
+
+/* TREC notice links (§531.18 / §531.20): long labels must be at least
+   10pt; 16px ≈ 12pt, and the block is visually separated so it is
+   "readily noticeable" on the homepage. */
+.trec-notices { border-top: 1px solid rgba(247,242,231,0.25); margin-top: 1.5rem; padding-top: 1.25rem; }
+.trec-notices p { margin: 0.35rem 0; }
+.trec-notices a { font-size: 1rem; font-weight: 600; text-decoration: underline; }
+
+.footer-links { margin-top: 1rem; }
+
+/* Equal Housing Opportunity block */
+.eho { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 1rem; max-width: 46rem; }
+.eho-mark { color: var(--cream); flex: none; margin-top: 0.15rem; }
+
+/* Accessibility: visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--rust);
+  outline-offset: 2px;
+}
+.hero a:focus-visible, .site-header a:focus-visible, .site-footer a:focus-visible {
+  outline-color: var(--gold);
+}
+
+/* Skip link — visually hidden until focused */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--green-dark); color: #fff; padding: 0.6rem 1rem;
+}
+.skip-link:focus { left: 0; }
+
+/* Forms */
+label { display: block; font-weight: 600; margin: 1rem 0 0.3rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+input, textarea, select { width: 100%; padding: 0.6rem; border: 1px solid #cbbf9f; border-radius: 4px; font: inherit; background: #fff; }
+button[type='submit'] { margin-top: 1.25rem; cursor: pointer; border: none; }
+
+article.post { max-width: 46rem; }
+.meta { color: var(--muted); font-size: 0.92rem; }
