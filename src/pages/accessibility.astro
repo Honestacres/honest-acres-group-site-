@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Accessibility Statement"
+  description="Honest Acres Group's accessibility commitment for honestacresgroup.com and how to request assistance or report a barrier."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Accessibility Statement</h1>
+      <p class="meta">Last updated: November 13, 2026</p>
+
+      <p>
+        {SITE.name} wants everyone to be able to use this website. We aim
+        to conform to the Web Content Accessibility Guidelines (WCAG) 2.1
+        Level AA, and we treat accessibility as part of our fair housing
+        commitment: if a barrier on this site keeps you from getting
+        information or contacting us, we will provide the same information
+        another way.
+      </p>
+
+      <h2>Measures in place</h2>
+      <ul>
+        <li>Semantic headings and landmarks, with a "Skip to main content" link.</li>
+        <li>Keyboard-visible focus indicators on links, buttons, and form fields.</li>
+        <li>Text alternatives (alt text) for meaningful images, and decorative images marked as such.</li>
+        <li>Color combinations chosen for readable contrast, and information never conveyed by color alone.</li>
+        <li>Labeled form fields on the contact page.</li>
+        <li>Pages that work without a mouse and reflow on small screens.</li>
+      </ul>
+
+      <h2>Known limitations</h2>
+      <p>
+        This is a new site. Video content (including the Fairways &amp;
+        Fences series) is published on YouTube; we will use YouTube's
+        captioning tools and request corrections where needed. PDF
+        documents linked from TREC are published by the Texas Real Estate
+        Commission; contact TREC or us if you need one in another format.
+      </p>
+
+      <h2>Request assistance or report a barrier</h2>
+      <p>
+        Email {SITE.agent.name} at
+        {' '}<a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a>
+        {' '}with "Accessibility" in the subject line. Tell us the page and
+        the problem, and how you'd like the information instead — large
+        print, a phone call, or another format — and we will respond
+        promptly. Accessibility and reasonable-accommodation requests are
+        welcome from everyone, with no obligation to use our services.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

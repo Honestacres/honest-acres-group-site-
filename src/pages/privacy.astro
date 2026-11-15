@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy Policy for honestacresgroup.com — what information Honest Acres Group collects, how it is used, and your choices."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: November 13, 2026</p>
+
+      <p>
+        This policy describes how {SITE.name} ("we," "us"), brokered by
+        {' '}{SITE.brokerage.name}, handles information collected through
+        this website, honestacresgroup.com. It is a plain-language summary
+        of our practices — it is not a contract and does not create any
+        brokerage relationship.
+      </p>
+
+      <h2>Information we collect</h2>
+      <ul>
+        <li>
+          <strong>Information you give us:</strong> if you email us or (once
+          enabled) submit our contact form, we receive your name, email
+          address, phone number if you provide it, and the contents of your
+          message — typically what kind of land you want to buy or sell.
+        </li>
+        <li>
+          <strong>Basic technical information:</strong> our hosting provider
+          (Vercel) automatically logs standard server data such as IP
+          address, browser type, and pages visited, for security and
+          reliability. This site does not currently run advertising trackers.
+        </li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To respond to your inquiry and provide real estate services you request.</li>
+        <li>To send you information you asked for, such as new-listing or first-call-list updates.</li>
+        <li>To operate, secure, and improve this website.</li>
+        <li>To comply with Texas real estate law and our broker's record-keeping obligations.</li>
+      </ul>
+
+      <h2>What we do not do</h2>
+      <ul>
+        <li>We do not sell your personal information.</li>
+        <li>We do not share it with marketers. We share it only with service providers who help us operate (such as email and website hosting), with our sponsoring broker as required for real estate transactions, or when required by law.</li>
+      </ul>
+
+      <h2>Texas privacy law note</h2>
+      <p>
+        The Texas Data Privacy and Security Act (TDPSA, Texas Business &amp;
+        Commerce Code Chapter 541) generally does not apply to small
+        businesses as defined by the U.S. Small Business Administration,
+        except that a small business may not sell sensitive personal data
+        without consent — and we do not sell personal data at all. Whether
+        or not the TDPSA applies to us, you may contact us at any time to
+        ask what information we hold about you, to correct it, or to ask us
+        to delete it, and we will honor reasonable requests.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This site is a static website and does not set its own tracking
+        cookies. If analytics or a contact-form provider is added later,
+        this policy will be updated to describe it before or when it goes
+        live.
+      </p>
+
+      <h2>Children</h2>
+      <p>This website is intended for adults interested in real estate and is not directed to children under 13.</p>
+
+      <h2>Contact about privacy</h2>
+      <p>
+        Email {SITE.agent.name} at
+        {' '}<a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a>.
+        Broker: {SITE.brokerage.footerLine}.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

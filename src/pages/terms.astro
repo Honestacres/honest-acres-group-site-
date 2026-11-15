@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Terms of Use"
+  description="Terms of Use for honestacresgroup.com — Honest Acres Group, brokered by Access Realty."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Terms of Use</h1>
+      <p class="meta">Last updated: November 13, 2026</p>
+
+      <p>
+        By using honestacresgroup.com, you agree to these terms. This
+        website is operated by {SITE.name}, a real estate group brokered by
+        {' '}{SITE.brokerage.name} ({SITE.brokerage.brokerName}, Broker,
+        Texas Lic. #{SITE.brokerage.brokerLicense}).
+      </p>
+
+      <h2>No brokerage relationship created by this website</h2>
+      <p>
+        Browsing this site, reading our blog or guides, or sending us a
+        message does not create an agency or brokerage relationship.
+        Representation begins only under a written agreement with the
+        broker, as described in the
+        {' '}<a href={SITE.legal.iabsUrl} target="_blank" rel="noopener">Texas Real Estate Commission Information About Brokerage Services</a>
+        {' '}notice linked in the footer of every page.
+      </p>
+
+      <h2>Property information is not guaranteed</h2>
+      <p>
+        Listing, price, acreage, and market information on this site is
+        provided for general information and consumers' personal,
+        non-commercial use. It is deemed reliable but not guaranteed, may
+        change without notice, and is not an appraisal, survey, legal
+        opinion, or offer to sell. Verify all material facts independently
+        before making decisions.
+      </p>
+
+      <h2>General information, not advice</h2>
+      <p>
+        Articles about water rights, agricultural valuation, mineral
+        rights, taxes, and similar topics are general educational
+        information about Texas land, not legal, tax, or financial advice
+        for your specific situation. Consult the appropriate licensed
+        professional.
+      </p>
+
+      <h2>Intellectual property</h2>
+      <p>
+        Site text, design, and original media are © {SITE.name} unless
+        otherwise noted. You may share links and quote briefly with
+        attribution. REALTOR® is a registered collective membership mark of
+        the National Association of REALTORS® and is used here only in
+        connection with James's confirmed membership. Other trademarks
+        belong to their owners.
+      </p>
+
+      <h2>Third-party links and video</h2>
+      <p>
+        Links to third-party sites (including TREC, YouTube, and social
+        platforms) are provided for convenience; we do not control or
+        endorse their content and are not responsible for their privacy
+        practices.
+      </p>
+
+      <h2>Acceptable use</h2>
+      <p>
+        Do not misuse this site: no scraping for resale of listing data, no
+        attempts to disrupt the site, and no use in violation of fair
+        housing or other applicable law.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>
+        These terms are governed by the laws of the State of Texas.
+        Questions: <a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

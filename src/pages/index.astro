@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '../config/site';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Texas Farm, Ranch & Recreational Land">
+  <section class="hero">
+    <div class="container">
+      <p class="tagline">{SITE.tagline}</p>
+      <h1>Texas farm, ranch &amp; recreational land, represented honestly.</h1>
+      <p>
+        {SITE.name} helps buyers and sellers of farms, ranches, and recreational
+        properties across Texas — with honest advice from a land specialist who
+        doesn't just sell ranch land. He works it.
+      </p>
+      <p>
+        <a class="btn btn-gold" href="/listings/">See Land for Sale</a>
+        <a class="btn btn-outline" href="/contact/">Talk to James</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How we help</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Buying land</h3>
+          <p>Water, soils, ag valuation, wildlife, and access — evaluated the way a working rancher evaluates his own place, before you ever make an offer.</p>
+          <p><a href="/buy/">Buying with Honest Acres →</a></p>
+        </div>
+        <div class="card">
+          <h3>Selling land</h3>
+          <p>Honest pricing, professional presentation, and marketing that reaches real land buyers — on the big land platforms and far beyond them.</p>
+          <p><a href="/sell/">Selling with Honest Acres →</a></p>
+        </div>
+        <div class="card">
+          <h3>Recreational &amp; hunting land</h3>
+          <p>Deer, dove, hogs, tanks, and oak country. We know what makes a tract hunt — and what makes it hold its value.</p>
+          <p><a href="/regions/">Explore our regions →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Meet James</h2>
+      <p>
+        James lives in Comanche County and runs a working ranch with cattle and
+        Bermuda hay fields. When he talks about carrying capacity, hay
+        production, water, and soils, it's not sales talk — it's what he did
+        this week.
+      </p>
+      <p><a href="/about/">More about James and Honest Acres Group →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Our home ground</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>The Cross Timbers</h3>
+          <p>Post oak country with sandy soils, live water, cattle pasture, and some of the best honest land value in Texas.</p>
+          <p><a href="/regions/cross-timbers/">Cross Timbers guide →</a></p>
+        </div>
+        <div class="card">
+          <h3>The North Hill Country</h3>
+          <p>Limestone hills, live oak, and clear water at the northern edge of the Hill Country — recreational and ranch land with room to breathe.</p>
+          <p><a href="/regions/north-hill-country/">North Hill Country guide →</a></p>
+        </div>
+      </div>
+      <p style="margin-top:1rem;"><a href="/county-guides/">Browse land by county →</a></p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Fairways &amp; Fences</h2>
+      <p>
+        Our YouTube series visiting the local golf courses in the counties we
+        serve — drone flyovers, a round with James, and a report back on what
+        each county offers the folks thinking about living there.
+      </p>
+      <p><a href="/fairways-and-fences/">About the series →</a></p>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>From the blog</h2>
+        {posts.map((post) => (
+          <p>
+            <strong><a href={`/blog/${post.id}/`}>{post.data.title}</a></strong><br />
+            <span class="meta">{post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span><br />
+            {post.data.description}
+          </p>
+        ))}
+        <p><a href="/blog/">All posts →</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Looking for land — or ready to sell it?</h2>
+      <p>Start with an honest conversation. No pressure, no sales script.</p>
+      <p><a class="btn btn-green" href="/contact/">Contact Honest Acres Group</a></p>
+    </div>
+  </section>
+</BaseLayout>

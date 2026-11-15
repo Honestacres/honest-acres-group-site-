@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Fair Housing Commitment"
+  description="Honest Acres Group's fair housing commitment: equal professional service for everyone, under the federal Fair Housing Act and the Texas Fair Housing Act."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Fair Housing Commitment</h1>
+
+      <p class="eho">
+        <span class="eho-mark" aria-hidden="true" style="color: var(--green);">
+          <svg viewBox="0 0 24 24" width="30" height="30" focusable="false">
+            <path d="M12 3 L22 12 H19 V21 H14 V15 H10 V21 H5 V12 H2 Z" fill="currentColor" />
+            <rect x="8.5" y="10.2" width="7" height="1.6" fill="#f7f2e7" />
+            <rect x="8.5" y="13" width="7" height="1.6" fill="#f7f2e7" />
+          </svg>
+        </span>
+        <span><strong>{SITE.fairHousing.slogan}</strong></span>
+      </p>
+
+      <p>{SITE.fairHousing.statement}</p>
+
+      <h2>The law</h2>
+      <p>
+        The federal Fair Housing Act and the Texas Fair Housing Act
+        (Texas Property Code, Chapter 301) prohibit discrimination in the
+        sale or rental of housing, and in related services, because of:
+      </p>
+      <ul>
+        <li>Race</li>
+        <li>Color</li>
+        <li>Religion</li>
+        <li>Sex</li>
+        <li>Disability (handicap)</li>
+        <li>Familial status</li>
+        <li>National origin</li>
+      </ul>
+      <p>
+        Texas Real Estate Commission rules (§531.19) likewise prohibit
+        license holders from making or facilitating inquiries or disclosures
+        that indicate any preference, limitation, or discrimination based on
+        race, color, religion, sex, national origin, ancestry, familial
+        status, or disability.
+      </p>
+
+      <h2>What that means in our marketing</h2>
+      <p>
+        We describe <em>property</em> — its land, water, soils, improvements,
+        and location — not the people who might buy it. Our listings, guides,
+        blog posts, and videos do not use language that states or implies a
+        preference for or against any protected class, and we do not steer
+        buyers toward or away from any area based on the people who live
+        there. Everyone who contacts us receives the same honest service.
+      </p>
+
+      {SITE.agent.isRealtor && (
+        <p>
+          As a member of the National Association of REALTORS®, James also
+          subscribes to its Code of Ethics, including Article 10's fair
+          housing obligations.
+        </p>
+      )}
+
+      <h2>If you believe your rights have been violated</h2>
+      <p>
+        You may file a fair housing complaint with the U.S. Department of
+        Housing and Urban Development (HUD) — see
+        <a href="https://www.hud.gov" target="_blank" rel="noopener">hud.gov</a> —
+        or with the Texas Workforce Commission's Civil Rights Division,
+        which enforces the Texas Fair Housing Act. You may also raise any
+        concern directly with our broker,
+        {' '}{SITE.brokerage.brokerName}, {SITE.brokerage.name}, at the
+        address in this site's footer.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

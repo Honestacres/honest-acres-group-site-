@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="About / Meet James"
+  description="Meet James of Honest Acres Group — a Comanche County rancher and Texas land specialist who works the land he sells."
+>
+  <section class="section">
+    <div class="container">
+      <h1>He doesn't just sell ranch land. He works it.</h1>
+
+      <p>{SITE.shortProfile}</p>
+
+      <h2>Meet James</h2>
+      <p>
+        James is a resident of Comanche County, Texas, where he runs a working
+        ranch with cattle and Bermuda hay fields. That daily, hands-on
+        experience is the foundation of Honest Acres Group: when James walks a
+        property with a buyer, he reads it the way a rancher does — grass,
+        water, soils, fences, and what the place will actually do across a
+        full year of Texas weather, not just how it looks on showing day.
+      </p>
+      <p>
+        As an honest fiduciary, James's job is to give buyers and sellers of
+        farm, ranch, and recreational land straight advice — including when
+        the straight advice is "this isn't the right tract" or "this isn't
+        the right price." That's the deal, every time.
+      </p>
+      <p>
+        And when he's not selling real estate or ranching, you'll find him on
+        the fairway — playing the local courses across the counties he serves
+        and reporting back through our <a href="/fairways-and-fences/">Fairways
+        &amp; Fences</a> series, so buyers can see what life in each county
+        actually looks like.
+      </p>
+
+      <h2>About Honest Acres Group</h2>
+      <p>
+        Honest Acres Group is a Texas real estate group specializing in farm,
+        ranch, and recreational properties, {SITE.brokerage.footerLine}.
+        Our home ground is the Cross Timbers and the North Hill Country, and
+        our standard is in our name: honest land, honest advice.
+      </p>
+
+      <p>
+        {SITE.agent.name}{SITE.agent.isRealtor ? ', REALTOR®' : ''} · Texas Lic. #{SITE.agent.license} ·
+        <a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a>
+      </p>
+      <p><a class="btn btn-green" href="/contact/">Get in touch</a></p>
+    </div>
+  </section>
+</BaseLayout>

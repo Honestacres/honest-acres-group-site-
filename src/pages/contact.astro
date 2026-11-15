@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact Honest Acres Group — James, Texas land specialist, for honest advice on buying or selling farm, ranch, and recreational land in Texas."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Talk to James</h1>
+      <p>Buying, selling, or just thinking out loud about Texas land — start with an honest conversation.</p>
+
+      <p>
+        <strong>{SITE.agent.name}</strong>{SITE.agent.isRealtor ? ', REALTOR®' : ''} · {SITE.name}<br />
+        Texas Lic. #{SITE.agent.license}<br />
+        Email: <a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a><br />
+        {SITE.agent.showPhonePlaceholder ? (
+          <>Phone: <span>{SITE.agent.phone}</span></>
+        ) : (
+          <>Phone: <a href={`tel:${SITE.agent.phone}`}>{SITE.agent.phone}</a></>
+        )}
+      </p>
+
+      <h2>Send a message</h2>
+
+      {/*
+        TODO: This form is a PLACEHOLDER — it does not send anywhere yet.
+        Connect a form provider before launch. Easy options on Vercel/Astro:
+          - Formspree or Basin: set the form `action` to the provider endpoint.
+          - Netlify Forms does NOT work on Vercel.
+          - Or a serverless endpoint (Vercel Function) that emails James.
+        Until then, the form is disabled so nobody thinks a message went through.
+      */}
+      <div class="todo-note">
+        <strong>Fastest contact right now is email:</strong>
+        <a href={`mailto:${SITE.agent.email}`}>{SITE.agent.email}</a> —
+        the web form below is being connected and doesn't send yet.
+      </div>
+
+      <form method="post" action="#" aria-disabled="true">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" autocomplete="name" disabled />
+
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" autocomplete="email" disabled />
+
+        <label for="phone">Your phone (optional)</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" disabled />
+
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest" disabled>
+          <option>Buying land</option>
+          <option>Selling land</option>
+          <option>An honest valuation</option>
+          <option>Something else</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" disabled></textarea>
+
+        <button type="submit" class="btn btn-green" disabled>Send message (coming soon)</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

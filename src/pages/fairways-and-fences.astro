@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Fairways & Fences — Golf, County by County"
+  description="Fairways & Fences is Honest Acres Group's YouTube series: drone flyovers and rounds at the local golf courses in the Texas counties we serve, reported back for land buyers."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Fairways &amp; Fences</h1>
+      <p>
+        When buyers ask about a county, they don't only ask about land prices.
+        They ask what life there is like. Golf is part of that answer — so
+        James is playing the local courses across the counties Honest Acres
+        Group serves, and reporting back.
+      </p>
+
+      <h2>How each episode works</h2>
+      <p>
+        <strong>1. Drone flyover</strong> — see the course and the country around it from the air.<br />
+        <strong>2. A round with James</strong> — honest course notes, the way you'd get them from a neighbor.<br />
+        <strong>3. The county report</strong> — what that course, town, and county offer the people thinking about buying land and living there.
+      </p>
+
+      <h2>The pilot episode</h2>
+      <p>
+        We start at home: <strong>PAR Country Club in Comanche</strong>,
+        Comanche County — 18 holes between Comanche and De Leon, minutes
+        from James's own ranch country.
+      </p>
+      <p>
+        From there the series works county by county through the Cross
+        Timbers and the North Hill Country — Stephenville, Eastland,
+        Brownwood, Goldthwaite, Llano, Mason, San Saba, Burnet, Blanco,
+        Fredericksburg, and beyond.
+      </p>
+
+      <div class="todo-note">
+        <strong>Filming note:</strong> every course is contacted for
+        permission before any drone or commercial filming. Private clubs are
+        featured only with the club's written OK — and that first call is
+        also how we meet the neighbors.
+      </div>
+
+      <h2>Watch &amp; follow</h2>
+      {SITE.social.youtube ? (
+        <p>Episodes live on our YouTube channel: <a href={SITE.social.youtube} rel="noopener" target="_blank">Honest Acres Group on YouTube</a>.</p>
+      ) : (
+        <p>
+          {/* TODO: Add the YouTube channel URL in src/config/site.ts once the channel is created. */}
+          The series launches with our YouTube channel — follow along on the
+          <a href="/blog/"> blog</a> and our social channels for the first episode announcement.
+        </p>
+      )}
+      <p><a class="btn btn-green" href="/county-guides/">See the counties we cover</a></p>
+    </div>
+  </section>
+</BaseLayout>
