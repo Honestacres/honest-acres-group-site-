@@ -74,20 +74,17 @@ export const SITE = {
    *
    * CPN: links to the official TREC PDF (CN 1-5) — no completion needed.
    *
-   * ⚠️ IABS — LAUNCH BLOCKER: TREC requires a link to a COMPLETED IABS
-   * Notice (TREC No. IABS 1-2, the current form effective 1/1/2026) filled
-   * in with Access Realty / Cassidy Spilker / James's contact information.
-   * The URL below currently points to TREC's official blank IABS 1-2 PDF as
-   * an interim measure ONLY. Before public launch, the broker must supply
-   * the completed form; host it at `public/legal/iabs.pdf` and change this
-   * value to '/legal/iabs.pdf'.
+   * IABS — COMPLETED 2026-11-15: the link below points to the completed
+   * IABS 1-2 hosted at `public/legal/iabs.pdf` — Access Realty (firm
+   * license #9006219) / Cassidy Spilker (#0681230) / James Hoffman
+   * (#859747) contact information, completed in ZipForms and mirroring
+   * Access Realty's own published IABS. (Buyer/Tenant version; the
+   * Seller/Landlord twin carries the identical contact block.)
    */
   legal: {
     consumerProtectionNoticeUrl:
       'https://www.trec.texas.gov/sites/default/files/pdf-forms/CN%201-5_0.pdf',
-    // TODO (broker): replace with the COMPLETED IABS — see note above.
-    iabsUrl:
-      'https://www.trec.texas.gov/sites/default/files/pdf-forms/IABS%201-2.pdf',
+    iabsUrl: '/legal/iabs.pdf',
     /** Internal compliance / policy pages */
     fairHousingUrl: '/fair-housing/',
     privacyUrl: '/privacy/',
