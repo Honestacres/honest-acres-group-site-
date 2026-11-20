@@ -57,7 +57,7 @@ export const SITE = {
    */
   brokerage: {
     footerLine:
-      'Brokered by Access Realty — Cassidy Spilker, Broker, Lic. #0681230, 5755 Rufe Snow Drive, Ste 120, North Richland Hills, TX 76180',
+      'Brokered by Access Realty LLC — Cassidy Spilker, Broker, Lic. #0681230, 5755 Rufe Snow Drive, Ste 120, North Richland Hills, TX 76180',
     name: 'Access Realty',
     brokerName: 'Cassidy Spilker',
     brokerLicense: '0681230',
